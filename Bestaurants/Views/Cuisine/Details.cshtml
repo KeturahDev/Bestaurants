@@ -1,0 +1,15 @@
+@{Layout="_Layout";}
+
+@using Bestaurant.Models;
+@model Bestaurant.Models.Cuisine;
+<h1>Cuisine Details</h1>
+
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@foreach(Restaurant restaurant in Model.Restaurants)
+{
+  <p>@restaurant.Name</p>
+}
+
+<p>@Html.ActionLink("Add new restaurant", "Create", "Restaurant")</p>
+

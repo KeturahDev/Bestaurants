@@ -33,5 +33,12 @@ namespace Bestaurant.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Details(int id)
+    {
+      Cuisine currentCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      currentCuisine.Restaurants = _db.Restaurants.Where(restaurant => restaurant.CuisineId == id).ToList();
+      return View(currentCuisine);
+    }
   }
 }
