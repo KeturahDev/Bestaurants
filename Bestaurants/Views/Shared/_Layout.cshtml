@@ -15,8 +15,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="/cuisines">Cuisines</a>
-        <a class="nav-item nav-link" href="/cuisines/new">Add Cuisine</a>
+        @Html.ActionLink("Cuisines", "Index", "Cuisine")
+        @Html.ActionLink("Add Cuisine", "New", "Cuisine")
         <a class="nav-item nav-link" href="#">About</a>
       </div>
     </div>
