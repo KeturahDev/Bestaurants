@@ -25,11 +25,35 @@ Download the .zip file and extract all files into directory of your choice OR cl
     ```
     dotnet restore
     ```
-4. Compile and Run code:
+
+#### Setup Database
+
+4. Run the following commands in MySQL to setup this project Database
     ```
+    CREATE DATABASE `bestaurants`;
+    USE bestaurants;
+    CREATE TABLE `cuisines` (
+        `CuisineId` int(11) NOT NULL AUTO_INCREMENT,
+        `Name` varchar(255) DEFAULT NULL,
+        PRIMARY KEY (`CuisineId`)
+    );
+    CREATE TABLE `restaurants` (
+        `RestaurantId` int(11) NOT NULL AUTO_INCREMENT,
+        `Name` varchar(255) DEFAULT NULL,
+        `CuisineId` int(11) NOT NULL DEFAULT '0',
+        `Description` varchar(255) DEFAULT NULL,
+        `Address` varchar(255) DEFAULT NULL,
+        `Delivery` tinyint(1) DEFAULT '0',
+        PRIMARY KEY (`RestaurantId`)
+    );
+
+    ```
+5. Compile and Run code:
+    ```
+    dotnet build
     dotnet run
     ```
-5. Open the locally hosted server in your preferred web browser:
+6. Open the locally hosted server in your preferred web browser:
     ```
     start http://localhost:5000
     ```
@@ -38,18 +62,18 @@ Download the .zip file and extract all files into directory of your choice OR cl
 
 ### Routing Flowchart
 
-
+![Project Flowchart](https://github.com/jamisoncozart/Bestaurants/Bestaurants/images/flowchart.png "Project Flowchart")
 
 ### MySQL Database Structure
 
-
+![Project Database Structure](https://github.com/jamisoncozart/Bestaurants/Bestaurants/images/dbSt.ucturejpng"Project FDB Structure)
 
 ## Technologies Used
 
 * C#
-* ASP.NET core MVC
+* ASP.NET core MVC 2.2
 * Entity Framework Core
-* MySQL + MySQL Workbench
+* MySQL + MySQL Workbench version 8.0.15
 * RESTful Routing
 * CRUD Functionality
 * Git
