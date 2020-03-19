@@ -64,10 +64,12 @@ Download the .zip file and extract all files into directory of your choice OR cl
 ### Routing Flowchart
 
 ![Project Flowchart](https://github.com/keturahdev/Bestaurants/Bestaurants/images/flowchart.png "Project Flowchart")
+<img src="https://github.com/keturahdev/Bestaurants/Bestaurants/images/flowchart.png" />
 
 ### MySQL Database Structure
 
 ![Project Database Structure](https://github.com/keturahdev/Bestaurants/Bestaurants/images/db.Structure.png "Project FDB Structure")
+<img src="https://github.com/keturahdev/Bestaurants/Bestaurants/images/db.Structure.png" />
 
 ## Technologies Used
 
