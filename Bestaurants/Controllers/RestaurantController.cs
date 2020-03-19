@@ -28,9 +28,9 @@ namespace Bestaurant.Controllers
     {
       _db.Restaurants.Add(restaurant);
       _db.SaveChanges();      
-      return RedirectToAction("Index", "Cuisine");
-      // return RedirectToAction("Details", "Cuisine", restaurant.CuisineId);
+      // int id = restaurant.CuisineId;
+      return RedirectToAction("Index", "Cuisine"); /////
+      // return RedirectToAction("Details", "Cuisine", id);
     }
   }
-
 }

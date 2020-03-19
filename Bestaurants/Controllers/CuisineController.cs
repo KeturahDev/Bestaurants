@@ -40,5 +40,20 @@ namespace Bestaurant.Controllers
       currentCuisine.Restaurants = _db.Restaurants.Where(restaurant => restaurant.CuisineId == id).ToList();
       return View(currentCuisine);
     }
+
+    public ActionResult Edit(int id)
+    {
+      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      return View(thisCuisine);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Cuisine cuisine)
+    {
+      _db.Entry(cuisine).State = EntityState.Modified; //find and update all the entries for the properties of this specific instance
+      //state (state of instance), is now equal to MODIFIED state..
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
