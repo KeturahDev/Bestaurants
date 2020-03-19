@@ -43,7 +43,7 @@ namespace Bestaurant.Controllers
 
     public ActionResult Edit(int id)
     {
-      var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
       return View(thisCuisine);
     }
 
@@ -52,6 +52,21 @@ namespace Bestaurant.Controllers
     {
       _db.Entry(cuisine).State = EntityState.Modified; //find and update all the entries for the properties of this specific instance
       //state (state of instance), is now equal to MODIFIED state..
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Delete(int id)
+    {
+      Cuisine cuisineToDelete = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      return View(cuisineToDelete);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      Cuisine cuisineToDelete = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      _db.Cuisines.Remove(cuisineToDelete);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
