@@ -1,4 +1,5 @@
 # Bestaurants
+#### March 19 2020
 
 ASP.NET core MVC application using Entity Framework Core and MySQL for a restaurant review website. Search our restaurants by cuisine and see reviews for each restaurant. Practice with ASP.NET core MVC with Entity Framework Core and MySQL.
 
@@ -62,11 +63,11 @@ Download the .zip file and extract all files into directory of your choice OR cl
 
 ### Routing Flowchart
 
-![Project Flowchart](https://github.com/jamisoncozart/Bestaurants/Bestaurants/images/flowchart.png "Project Flowchart")
+![Project Flowchart](https://github.com/keturahdev/Bestaurants/Bestaurants/images/flowchart.png "Project Flowchart")
 
 ### MySQL Database Structure
 
-![Project Database Structure](https://github.com/jamisoncozart/Bestaurants/Bestaurants/images/dbSt.ucturejpng"Project FDB Structure)
+![Project Database Structure](https://github.com/keturahdev/Bestaurants/Bestaurants/images/db.Structure.png "Project FDB Structure")
 
 ## Technologies Used
 
