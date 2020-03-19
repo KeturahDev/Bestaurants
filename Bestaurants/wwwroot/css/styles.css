@@ -1,0 +1,27 @@
+body{
+  /* background-image: linear-gradient(to right top, #dbdacb, #c2cfb4, #9ec6a5, #70bda2, #20b2aa); */
+  background-color: lightseagreen;
+}
+
+div#footer {
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	color:#CCC;
+	background:#333;
+	padding:8px;
+}
+
+.card {
+  margin: 1rem;
+  background-color: #198a84;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

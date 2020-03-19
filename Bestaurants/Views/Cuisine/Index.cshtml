@@ -6,13 +6,21 @@
 @using Bestaurant.Models;
 @model List<Bestaurant.Models.Cuisine>;
 
-<h2>Possible Cuisines</h2>
+<h2>Here are all the cuisines we have:</h2>
 
 @if(@Model.Count == 0)
 {
   <p>Theres currently no entered cuisines.."</p>
 }
+<div class="row">
 @foreach(Cuisine cuisine in Model)
 {
-  <li>@Html.ActionLink($"{cuisine.Name}", "Details", new {id = cuisine.CuisineId})</li> //use html helper method for action link to details
+    <div class="card col-md-3">
+      <div class="card-body">
+        <h4 class="card-title">@cuisine.Name</h4>
+        <p>@Html.ActionLink("See Details", "Details", new {id = cuisine.CuisineId}, new {@class = "btn btn-info"})</p>
+        @* //use html helper method for action link to details *@
+      </div>
+    </div>
 }
+</div>

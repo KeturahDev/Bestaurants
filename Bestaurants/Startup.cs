@@ -46,6 +46,7 @@ namespace Bestaurant
       {
         await context.Response.WriteAsync("Wha-oh speghettio!");
       });
+      app.UseStaticFiles();
     }
   }
 }

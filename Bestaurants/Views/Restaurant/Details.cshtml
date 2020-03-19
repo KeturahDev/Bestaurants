@@ -7,7 +7,7 @@
 <p>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</p>
 <p>@Html.DisplayNameFor(model => model.Address): @Html.DisplayFor(model => model.Address)</p>
 
-@Html.ActionLink("Back to cuisine", "Index", "Cuisine") 
-@Html.ActionLink("Edit this restaurant", "Edit", new { id = Model.RestaurantId})
-@Html.ActionLink("Delete this restaurant", "Delete", new {id=Model.RestaurantId})
+@Html.ActionLink("Back to cuisine", "Index", "Cuisine", null,  new { @class = "btn btn-dark btn-large" }) 
+@Html.ActionLink("Edit this restaurant", "Edit", new { id = Model.RestaurantId},  new { @class = "btn btn-dark btn-large" })
+@Html.ActionLink("Delete this restaurant", "Delete", new {id=Model.RestaurantId}, new { @class = "btn btn-dark btn-large" })
 

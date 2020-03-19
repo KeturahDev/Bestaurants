@@ -8,10 +8,10 @@
 
 @foreach(Restaurant restaurant in Model.Restaurants)
 {
-  <p>@Html.ActionLink($"{restaurant.Name}", "Details", "Restaurant", new {id = restaurant.RestaurantId})</p>
+  <p>@Html.ActionLink($"{restaurant.Name}", "Details", "Restaurant", new {id = restaurant.RestaurantId}, new { @class = "btn btn-dark btn-large" })</p>
 }
-
-<p>@Html.ActionLink("Add new restaurant", "Create", "Restaurant")</p>
-<p>@Html.ActionLink("Edit this Cuisine", "Edit", new { id = Model.CuisineId } )</p>
-<p>@Html.ActionLink("Delete this Cuisine", "Delete", new { id = Model.CuisineId } )</p>
+<hr>
+<p>@Html.ActionLink("Add new restaurant", "Create", "Restaurant", null, new { @class = "btn btn-dark btn-large" })</p> @* !! *@
+<p>@Html.ActionLink("Edit this Cuisine", "Edit", new { id = Model.CuisineId }, new { @class = "btn btn-dark btn-large" } )</p>
+<p>@Html.ActionLink("Delete this Cuisine", "Delete", new { id = Model.CuisineId }, new { @class = "btn btn-dark btn-large" } )</p>
 
