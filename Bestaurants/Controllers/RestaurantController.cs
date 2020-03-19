@@ -52,5 +52,20 @@ namespace Bestaurant.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = restaurant.RestaurantId });
     }
+
+    public ActionResult Delete(int id)
+    {
+      Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(model => model.RestaurantId == id);
+      return View(currentRestaurant);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult ConfirmDelete(int id)
+    {
+      Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+      _db.Restaurants.Remove(currentRestaurant);
+      _db.SaveChanges();
+      return RedirectToAction("Details", "Cuisine", new {id = currentRestaurant.CuisineId});
+    }
   }
 }
