@@ -15,12 +15,13 @@
   
   @Html.LabelFor(model => model.Address)
   @Html.TextBoxFor(model => model.Address)
+
+  <input id="CuisineId" name="CuisineId" type="hidden" value="@ViewBag.Cuisine.CuisineId"/>
   
   @* @Html.LabelFor(model => model.Delivery)
   @Html.TextBoxFor(model => model.Delivery) *@
-
-  <label for="CuisineId">Cuisine:</label>
-  @Html.DropDownList("CuisineId"); //drop down list is from viewbag
+  @* <label for="CuisineId">Cuisine:</label>
+  @Html.DropDownList("CuisineId"); //drop down list is from viewbag *@
 
   <input type="submit" value="Bingo"/>
 }

@@ -17,55 +17,103 @@ namespace Bestaurant.Controllers
       _db = db;
     }
 
-    public ActionResult Create()
+    public ActionResult Create(int id)
     {
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
-      return View();
+      try
+      {
+        Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+        ViewBag.Cuisine = thisCuisine;
+        return View();
+      }
+      catch
+      {
+        return RedirectToAction("Index", "Controller");
+      }
     }
 
     [HttpPost]
     public ActionResult Create(Restaurant restaurant)
     {
-      _db.Restaurants.Add(restaurant);
-      _db.SaveChanges();      
-      // int id = restaurant.CuisineId;
-      return RedirectToAction("Index", "Cuisine"); /////
-      // return RedirectToAction("Details", "Cuisine", id);
+      try
+      {
+        _db.Restaurants.Add(restaurant);
+        _db.SaveChanges();      
+        return RedirectToAction("Details", "Cuisine", new {id = restaurant.CuisineId});
+      }
+      catch
+      {
+        return RedirectToAction("Index", "Cuisine");
+      }
     }
 
     public ActionResult Details(int id)
     {
-      Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      return View(currentRestaurant);
+      try
+      {
+        Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+        return View(currentRestaurant);
+      }
+      catch
+      {
+        return RedirectToAction("Index", "Cuisine");
+      }
     }
 
     public ActionResult Edit(int id)
     {
-      Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      return View(currentRestaurant);
+      try
+      {
+        Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+        return View(currentRestaurant);
+      }
+      catch
+      {
+        return RedirectToAction("Index", "Cuisine");
+      }
     }
 
     [HttpPost]
     public ActionResult Edit(Restaurant restaurant)
     {
-      _db.Entry(restaurant).State = EntityState.Modified;
-      _db.SaveChanges();
-      return RedirectToAction("Details", new { id = restaurant.RestaurantId });
+      try
+      {  
+        _db.Entry(restaurant).State = EntityState.Modified;
+        _db.SaveChanges();
+        return RedirectToAction("Details", new { id = restaurant.RestaurantId });
+      }
+      catch
+      {
+        return RedirectToAction("Index", "Cuisine");
+      }
     }
 
     public ActionResult Delete(int id)
     {
-      Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(model => model.RestaurantId == id);
-      return View(currentRestaurant);
+      try
+      {
+        Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(model => model.RestaurantId == id);
+        return View(currentRestaurant);
+      }
+      catch
+      {
+        return RedirectToAction("Index", "Cuisine");
+      }
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult ConfirmDelete(int id)
     {
-      Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      _db.Restaurants.Remove(currentRestaurant);
-      _db.SaveChanges();
-      return RedirectToAction("Details", "Cuisine", new {id = currentRestaurant.CuisineId});
+      try
+      {
+        Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+        _db.Restaurants.Remove(currentRestaurant);
+        _db.SaveChanges();
+        return RedirectToAction("Details", "Cuisine", new {id = currentRestaurant.CuisineId});
+      }
+      catch
+      {
+        return RedirectToAction("Index", "Cuisine");
+      }
     }
   }
 }
