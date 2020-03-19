@@ -8,7 +8,7 @@
 
 @foreach(Restaurant restaurant in Model.Restaurants)
 {
-  <p>@restaurant.Name</p>
+  <p>@Html.ActionLink($"{restaurant.Name}", "Details", "Restaurant", new {id = restaurant.RestaurantId})</p>
 }
 
 <p>@Html.ActionLink("Add new restaurant", "Create", "Restaurant")</p>

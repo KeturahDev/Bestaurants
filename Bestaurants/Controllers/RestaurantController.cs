@@ -32,5 +32,11 @@ namespace Bestaurant.Controllers
       return RedirectToAction("Index", "Cuisine"); /////
       // return RedirectToAction("Details", "Cuisine", id);
     }
+
+    public ActionResult Details(int id)
+    {
+      Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+      return View(currentRestaurant);
+    }
   }
 }
