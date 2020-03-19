@@ -53,7 +53,7 @@ namespace Bestaurant.Controllers
       _db.Entry(cuisine).State = EntityState.Modified; //find and update all the entries for the properties of this specific instance
       //state (state of instance), is now equal to MODIFIED state..
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = cuisine.CuisineId } );
     }
 
     public ActionResult Delete(int id)

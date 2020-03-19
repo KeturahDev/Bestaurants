@@ -38,5 +38,19 @@ namespace Bestaurant.Controllers
       Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
       return View(currentRestaurant);
     }
+
+    public ActionResult Edit(int id)
+    {
+      Restaurant currentRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+      return View(currentRestaurant);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Restaurant restaurant)
+    {
+      _db.Entry(restaurant).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = restaurant.RestaurantId });
+    }
   }
 }
