@@ -7,6 +7,7 @@ namespace Bestaurant.Models
     public int CuisineId {get;set;}
     public string Description {get;set;}
     public string Address {get;set;}
+    public virtual Cuisine Cuisine { get; set; }
     // public bool Delivery {get;set;} //translate to 1/0 at some point
   }
 }
